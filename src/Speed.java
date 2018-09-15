@@ -1,6 +1,6 @@
-public class Time extends AbstractData{
+public class Speed extends AbstractData {
 
-    public Time(String value, String unit) {
+    public Speed(String value, String unit) {
         super(value,unit);
     }
 
@@ -11,4 +11,5 @@ public class Time extends AbstractData{
        */
         return super.toString();
     }
+
 }
