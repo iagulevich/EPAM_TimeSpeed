@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DataManager {
 
@@ -26,10 +27,13 @@ public class DataManager {
 
     public List<Speed> getSpeeds(){
         if(dataList == null) dataListCreator();
-        ArrayList<Speed> speeds = new ArrayList<>();
+        /*ArrayList<Speed> speeds = new ArrayList<>();
         dataList.subList(1, dataList.size())
                 .forEach(abstractData -> speeds.add((Speed) abstractData));
-        return speeds;
+        return speeds;*/
+        return dataList.subList(1, dataList.size()).stream()
+                                                   .map(abstractData -> (Speed) abstractData)
+                                                   .collect(Collectors.toList());
     }
 
     private Time createTime(String s ){
