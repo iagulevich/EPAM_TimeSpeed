@@ -2,4 +2,4 @@
 2 kmh
 3 mph
 4 kn
-5 ms
+6 ms
