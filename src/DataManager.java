@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class DataManager {
@@ -13,20 +14,24 @@ public class DataManager {
     }
 
     private void dataListCreator(){
+        dataList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             dataList.add( i == 0 ? createTime(list.get(i)) : createSpeed(list.get(i)));
         }
     }
 
     public Time getTime(){
-        if (dataList == null) dataListCreator();
         return (Time) dataList.get(0);
     }
 
-    /*public List<Speed> getSpeeds(){
-        return (List<Speed>) list.subList(1, list.size());
+    public List<Speed> getSpeeds(){
+        if(dataList == null) dataListCreator();
+        ArrayList<Speed> speeds = new ArrayList<>();
+        dataList.subList(1, dataList.size())
+                .forEach(abstractData -> speeds.add((Speed) abstractData));
+        return speeds;
     }
-*/
+
     private Time createTime(String s ){
 
         String[] split = split(s);
