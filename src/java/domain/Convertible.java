@@ -19,9 +19,6 @@ public abstract class Convertible {
 
     @Override
     public String toString() {
-       /* StringBuilder sb = new StringBuilder();
-        return sb.append(value).append(" ").append(unit).toString();
-       */
         return value + " " + unit;
     }
 }
