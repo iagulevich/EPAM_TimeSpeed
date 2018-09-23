@@ -6,6 +6,10 @@ public class Speed extends Convertible {
         super(value,unit);
     }
 
+    public Double getDoubleValue() {
+        return Double.parseDouble(getValue());
+    }
+
     @Override
     public String toString() {
         return super.toString();

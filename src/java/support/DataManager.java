@@ -18,9 +18,6 @@ public class DataManager {
         this.list = list;
     }
 
-    public DataManager() {
-    }
-
     private void dataListCreator(){
         dataList = new ArrayList<>();
         /*for (String s: list) {

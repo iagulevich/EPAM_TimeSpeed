@@ -1,19 +1,37 @@
+import domain.Speed;
+import services.Converter;
 import support.DataManager;
 import support.Reader;
-import support.identifiers.SpeedUnit;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.List;
+import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) {
-        //System.out.println(new support.DataManager().getTime("10 h"));
 
-        //SpeedUnit.get(Math::sqrt,3);
         try {
-            System.out.println(new DataManager(new Reader(args[0]).read()).getSpeeds());
+            List<String> read = new Reader(args[0]).read();
+            List<Speed> speeds = new DataManager(read).getSpeeds();
+            List<Double> ms = new Converter().speedsToMS(speeds);
+            for (int i = 0; i < speeds.size(); i++) {
+                System.out.println(speeds.get(i) + " = " + format(ms.get(i)) + " ms");
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+
+    }
+
+    private static String format(Double d) {
+        Locale locale = new Locale("en", "UK");
+        DecimalFormatSymbols dfs = new DecimalFormatSymbols(locale);
+        String format = d % 1 == 0 ? "##0" : "##0.00";
+        DecimalFormat df = new DecimalFormat(format, dfs);
+        return df.format(d);
     }
 }
