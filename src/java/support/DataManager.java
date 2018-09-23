@@ -1,3 +1,9 @@
+package support;
+
+import domain.Convertible;
+import domain.Speed;
+import domain.Time;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -5,7 +11,7 @@ import java.util.stream.Collectors;
 public class DataManager {
 
     private List<String> list;
-    private List<AbstractData> dataList;
+    private List<Convertible> dataList;
 
     public DataManager(List<String> list) {
         this.list = list;
@@ -27,13 +33,13 @@ public class DataManager {
 
     public List<Speed> getSpeeds(){
         if(dataList == null) dataListCreator();
-        /*ArrayList<Speed> speeds = new ArrayList<>();
+        /*ArrayList<domain.Speed> speeds = new ArrayList<>();
         dataList.subList(1, dataList.size())
-                .forEach(abstractData -> speeds.add((Speed) abstractData));
+                .forEach(abstractData -> speeds.add((domain.Speed) abstractData));
         return speeds;*/
         return dataList.subList(1, dataList.size()).stream()
-                                                   .map(abstractData -> (Speed) abstractData)
-                                                   .collect(Collectors.toList());
+                .map(abstractData -> (Speed) abstractData)
+                .collect(Collectors.toList());
     }
 
     private Time createTime(String s ){

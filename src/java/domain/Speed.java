@@ -1,4 +1,6 @@
-public class Speed extends AbstractData {
+package domain;
+
+public class Speed extends Convertible {
 
     public Speed(String value, String unit) {
         super(value,unit);

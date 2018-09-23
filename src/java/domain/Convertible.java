@@ -1,8 +1,10 @@
-public abstract class AbstractData {
+package domain;
+
+public abstract class Convertible {
     private String value;
     private String unit;
 
-    public AbstractData(String value, String unit) {
+    public Convertible(String value, String unit) {
         this.value = value;
         this.unit = unit;
     }

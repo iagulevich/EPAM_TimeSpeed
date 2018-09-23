@@ -1,4 +1,6 @@
-public class Time extends AbstractData{
+package domain;
+
+public class Time extends Convertible {
 
     public Time(String value, String unit) {
         super(value,unit);
