@@ -8,9 +8,6 @@ public class Time extends Convertible {
 
     @Override
     public String toString() {
-       /* StringBuilder sb = new StringBuilder();
-        return sb.append(value).append(" ").append(unit).toString();
-       */
         return super.toString();
     }
 

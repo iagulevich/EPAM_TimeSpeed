@@ -1,6 +1,7 @@
 package support;
 
 import domain.Convertible;
+import domain.ConvertibleFactory;
 import domain.Speed;
 import domain.Time;
 
@@ -22,9 +23,10 @@ public class DataManager {
 
     private void dataListCreator(){
         dataList = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            dataList.add( i == 0 ? createTime(list.get(i)) : createSpeed(list.get(i)));
-        }
+        /*for (String s: list) {
+            dataList.add(ConvertibleFactory.create(s));
+        }*/
+        list.forEach(s -> dataList.add(ConvertibleFactory.create(s)));
     }
 
     public Time getTime(){
@@ -42,19 +44,4 @@ public class DataManager {
                 .collect(Collectors.toList());
     }
 
-    private Time createTime(String s ){
-
-        String[] split = split(s);
-        return new Time(split[0],split[1]);
-    }
-
-    private Speed createSpeed(String s){
-
-        String[] split = split(s);
-        return new Speed(split[0],split[1]);
-    }
-
-    private String[] split(String s) {
-        return s.split(" ");
-    }
 }

@@ -1,5 +1,4 @@
 package support.identifiers;
-
 import java.util.Arrays;
 
 public enum TimeUnit {
@@ -21,7 +20,7 @@ public enum TimeUnit {
                 .orElse(null);
     }
 
-    boolean isTimeUnit(String s) {
+    public static boolean isTimeUnit(String s) {
         return getUnit(s) != null;
     }
 }
