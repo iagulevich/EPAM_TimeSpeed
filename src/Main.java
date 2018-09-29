@@ -1,4 +1,5 @@
 import domain.Speed;
+import services.Calculator;
 import services.Converter;
 import support.DataManager;
 import support.Reader;
@@ -6,6 +7,7 @@ import support.Reader;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -19,6 +21,10 @@ public class Main {
             for (int i = 0; i < speeds.size(); i++) {
                 System.out.println(speeds.get(i) + " = " + format(ms.get(i)) + " ms");
             }
+
+            DataManager dataManager = new DataManager(read);
+
+            System.out.println(Arrays.toString(new Calculator().distancesInM(dataManager.getTime(), speeds)));
 
         } catch (IOException e) {
             e.printStackTrace();

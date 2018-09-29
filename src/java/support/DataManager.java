@@ -27,6 +27,7 @@ public class DataManager {
     }
 
     public Time getTime(){
+        if (dataList == null) dataListCreator();
         return (Time) dataList.get(0);
     }
 

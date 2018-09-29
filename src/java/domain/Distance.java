@@ -1,6 +1,6 @@
 package domain;
 
-public class Distance extends Convertible {
+public class Distance extends Convertible implements Comparable<Distance> {
 
     public Distance(String value, String unit) {
         super(value, unit);
@@ -13,5 +13,10 @@ public class Distance extends Convertible {
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    @Override
+    public int compareTo(Distance o) {
+        return Double.compare(getDoubleValue(), o.getDoubleValue());
     }
 }
