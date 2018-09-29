@@ -22,9 +22,9 @@ public class Converter {
     }
 
     public List<Double> speedsToMS(List<Speed> speeds) {
-        return new ArrayList<>(speeds.stream()
+        return speeds.stream()
                 .map(this::toMS)
-                .collect(Collectors.toList()));
+                .collect(Collectors.toList());
     }
 
 
