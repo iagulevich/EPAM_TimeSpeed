@@ -4,6 +4,8 @@ import domain.Convertible;
 import domain.ConvertibleFactory;
 import domain.Speed;
 import domain.Time;
+import support.comparators.SpeedGroupByUnit;
+import support.comparators.SpeedSortByValue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +21,7 @@ public class DataManager {
     }
 
     private void dataListCreator(){
-        dataList = new ArrayList<>();
-        /*for (String s: list) {
-            dataList.add(ConvertibleFactory.create(s));
-        }*/
-        list.forEach(s -> dataList.add(ConvertibleFactory.create(s)));
+        dataList = list.stream().map(ConvertibleFactory::create).collect(Collectors.toList());
     }
 
     public Time getTime(){
@@ -33,13 +31,18 @@ public class DataManager {
 
     public List<Speed> getSpeeds(){
         if(dataList == null) dataListCreator();
-        /*ArrayList<domain.Speed> speeds = new ArrayList<>();
-        dataList.subList(1, dataList.size())
-                .forEach(abstractData -> speeds.add((domain.Speed) abstractData));
-        return speeds;*/
         return dataList.subList(1, dataList.size()).stream()
                 .map(abstractData -> (Speed) abstractData)
                 .collect(Collectors.toList());
     }
+
+    public List<Speed> getSortedSpeeds(List<Speed> speeds) {
+        return speeds.stream()
+                .sorted(new SpeedSortByValue())
+                .sorted(new SpeedGroupByUnit())
+                .collect(Collectors.toList());
+    }
+
+
 
 }

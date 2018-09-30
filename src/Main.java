@@ -1,4 +1,3 @@
-import com.sun.org.apache.xpath.internal.SourceTree;
 import domain.Distance;
 import domain.Speed;
 import services.Calculator;
@@ -7,11 +6,10 @@ import support.DataManager;
 import support.Reader;
 
 import java.io.IOException;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
+
+import static support.Formatter.format;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,16 +21,16 @@ public class Main {
             for (int i = 0; i < speeds.size(); i++) {
                 System.out.println(speeds.get(i) + " = " + format(ms.get(i)) + " ms");
             }
-
             DataManager dataManager = new DataManager(read);
             Distance[] distances = new Calculator().distancesInM(dataManager.getTime(), speeds);
-            System.out.println(Arrays.toString(distances));
 
-            //Arrays.stream(distances).anyMatch(distance -> distance.getDoubleValue() >= 500 && distance.getDoubleValue() <=501);
+            Arrays.stream(distances).forEach(distance -> System.out.println(distance.getValue()));
+
             System.out.println(Arrays.stream(distances)
                     .anyMatch(distance -> distance.getDoubleValue() >= 500
                             && distance.getDoubleValue() <= 501) ? "yes" : "no");
 
+            dataManager.getSortedSpeeds(speeds).forEach(System.out::println);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -41,11 +39,4 @@ public class Main {
 
     }
 
-    private static String format(Double d) {
-        Locale locale = new Locale("en", "UK");
-        DecimalFormatSymbols dfs = new DecimalFormatSymbols(locale);
-        String format = d % 1 == 0 ? "##0" : "##0.00";
-        DecimalFormat df = new DecimalFormat(format, dfs);
-        return df.format(d);
-    }
 }
