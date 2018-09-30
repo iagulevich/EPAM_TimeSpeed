@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.SourceTree;
+import domain.Distance;
 import domain.Speed;
 import services.Calculator;
 import services.Converter;
@@ -23,8 +25,14 @@ public class Main {
             }
 
             DataManager dataManager = new DataManager(read);
+            Distance[] distances = new Calculator().distancesInM(dataManager.getTime(), speeds);
+            System.out.println(Arrays.toString(distances));
 
-            System.out.println(Arrays.toString(new Calculator().distancesInM(dataManager.getTime(), speeds)));
+            //Arrays.stream(distances).anyMatch(distance -> distance.getDoubleValue() >= 500 && distance.getDoubleValue() <=501);
+            System.out.println(Arrays.stream(distances)
+                    .anyMatch(distance -> distance.getDoubleValue() >= 500
+                            && distance.getDoubleValue() <= 501) ? "yes" : "no");
+
 
         } catch (IOException e) {
             e.printStackTrace();
