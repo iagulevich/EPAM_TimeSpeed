@@ -32,7 +32,7 @@ public class DataManager {
     public List<Speed> getSpeeds(){
         if(dataList == null) dataListCreator();
         return dataList.subList(1, dataList.size()).stream()
-                .map(abstractData -> (Speed) abstractData)
+                .map(convertible -> (Speed) convertible)
                 .collect(Collectors.toList());
     }
 

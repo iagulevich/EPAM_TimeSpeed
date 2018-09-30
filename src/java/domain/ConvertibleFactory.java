@@ -7,7 +7,7 @@ public class ConvertibleFactory {
 
     public static Convertible create(String s) {
 
-        String[] separated = s.split(" ");
+        String[] separated = s.split(" ");//[\s]+
 
         return (isSpeedUnit(separated[1]) ? new Speed(separated[0], separated[1]) :
                 isTimeUnit(separated[1]) ? new Time(separated[0], separated[1]) :
