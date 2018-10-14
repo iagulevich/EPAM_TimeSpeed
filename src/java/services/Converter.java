@@ -2,6 +2,8 @@ package services;
 
 import domain.Speed;
 import services.interfaces.Service;
+import support.DataManager;
+import support.sections.ConvertOperations;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +11,13 @@ import java.util.stream.Collectors;
 
 public class Converter implements Service {
 
-    public double toMS(Speed speed) {
+    private DataManager dataManager;
+
+    public Converter(List<String> list) {
+        dataManager = new DataManager(list);
+    }
+
+    private static double toMS(Speed speed) {
         switch (speed.getUnit()) {
             case "kmh":
                 return speed.getDoubleValue() * 3600 / 1000;
@@ -22,15 +30,17 @@ public class Converter implements Service {
         }
     }
 
-    public List<Double> speedsToMS(List<Speed> speeds) {
+    public static List<Double> speedsToMS(List<Speed> speeds) {
         return speeds.stream()
-                .map(this::toMS)
+                .map(Converter::toMS)
                 .collect(Collectors.toList());
     }
 
 
     @Override
-    public List<String> apply(List<String> convertibles) {
-        return null;
+    public List<String> apply(List<String> convertibles, Enum section) {
+        return speedsToMS(dataManager.getSpeeds()).stream()
+                .map(aDouble -> aDouble + " ms")
+                .collect(Collectors.toList());
     }
 }

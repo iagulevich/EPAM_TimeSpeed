@@ -46,7 +46,7 @@ public class Main {
             *
             */
             List<Speed> speeds = new DataManager(read).getSpeeds();
-            List<Double> ms = new Converter().speedsToMS(speeds);
+            List<Double> ms = Converter.speedsToMS(speeds);
             for (int i = 0; i < speeds.size(); i++) {
                 System.out.println(speeds.get(i) + " = " + format(ms.get(i)) + " ms");
             }
