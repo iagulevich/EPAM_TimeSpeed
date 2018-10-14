@@ -42,7 +42,4 @@ public class DataManager {
                 .sorted(new SpeedGroupByUnit())
                 .collect(Collectors.toList());
     }
-
-
-
 }
