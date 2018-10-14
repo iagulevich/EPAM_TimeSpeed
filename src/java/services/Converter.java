@@ -1,12 +1,13 @@
 package services;
 
 import domain.Speed;
+import services.interfaces.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Converter {
+public class Converter implements Service {
 
     public double toMS(Speed speed) {
         switch (speed.getUnit()) {
@@ -28,4 +29,8 @@ public class Converter {
     }
 
 
+    @Override
+    public List<String> apply(List<String> convertibles) {
+        return null;
+    }
 }

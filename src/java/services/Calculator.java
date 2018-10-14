@@ -3,13 +3,14 @@ package services;
 import domain.Distance;
 import domain.Speed;
 import domain.Time;
+import services.interfaces.Service;
 import sun.applet.Main;
 import support.Formatter;
 
 import java.util.Collections;
 import java.util.List;
 
-public class Calculator {
+public class Calculator implements Service {
 
     public Distance[] distancesInM(Time time, List<Speed> speeds) {
         return speeds.stream()
@@ -19,5 +20,10 @@ public class Calculator {
 
     private double distance(Double speed, Integer time) {
         return speed * time;
+    }
+
+    @Override
+    public List<String> apply(List<String> convertibles) {
+        return null;
     }
 }
