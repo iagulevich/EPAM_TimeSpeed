@@ -11,6 +11,20 @@
     <title>$Title$</title>
 </head>
 <body>
-Халлоу, Шурик, мы запустили веб приложение!
+
+<form action="service" name="form">
+
+    <input type="text" value="" name="field">
+    <input type="submit" name="submit" value="click">
+
+</form>
+
+<form name="otput">
+
+    <input type="hidden" name="result" value="">
+
+</form>
+${result}
+
 </body>
 </html>
