@@ -1,10 +1,12 @@
 package services.interfaces;
 
+import support.identifiers.SpeedUnit;
+
 import java.util.List;
 
 public interface Service {
 
-    List<String> apply(List<String> convertibles, Enum section);
+    String apply(String convertibles, SpeedUnit speedUnit);
 
 
 }

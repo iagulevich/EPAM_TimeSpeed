@@ -6,13 +6,12 @@ import domain.Time;
 import services.interfaces.Service;
 import sun.applet.Main;
 import support.Formatter;
-import support.sections.CalcOperations;
-import support.sections.ConvertOperations;
+
 
 import java.util.Collections;
 import java.util.List;
 
-public class Calculator implements Service {
+public class Calculator {
 
     public Distance[] distancesInM(Time time, List<Speed> speeds) {
         return speeds.stream()
@@ -25,8 +24,8 @@ public class Calculator implements Service {
     }
 
 
-    @Override
+   /* @Override
     public List<String> apply(List<String> convertibles, Enum section) {
         return null;
-    }
+    }*/
 }

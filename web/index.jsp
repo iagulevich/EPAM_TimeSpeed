@@ -41,7 +41,7 @@
 </form>
 
 <form name="otput">
-    <input type="hidden" name="resultValue" value="">
+    <input type="hidden" name="resultValue" value="" style="width: 500px">
 </form>
 
 <br>

@@ -2,6 +2,8 @@ package controllers;
 
 import domain.Speed;
 import services.Converter;
+import support.identifiers.SpeedUnit;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,16 +26,15 @@ public class ServiceController extends HttpServlet {
         //String res = req.getParameter("field");
         /*HttpSession session = req.getSession();
         session.setAttribute("result", res + " - doGet");*/
-
         // req.setAttribute("result", req.getParameter("field"));
         String strValue = req.getParameter("field");
         String strUnit = req.getParameter("select");
 
-        Speed speed = new Speed(strValue, strUnit);
-        System.out.println(speed);
+        //Speed speed = new Speed(strValue, strUnit);
 
         req.setAttribute("field", strValue);
-        req.setAttribute("resultValue", Converter.toMS(speed) + SPACE + MS);
+        req.setAttribute("resultValue", new Converter().apply(strValue + SPACE + strUnit, SpeedUnit.MS));
+
 
 
         getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
