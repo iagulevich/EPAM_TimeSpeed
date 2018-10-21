@@ -10,7 +10,7 @@ public class ConvertibleFactory {
 
     public static Convertible create(String s) {
 
-        String[] separated = s.split(" ");//[\s]+
+        String[] separated = s.split("[\\s]+");
 
         if (isSpeedUnit(separated[1])) {
             return new Speed(separated[0], separated[1]);

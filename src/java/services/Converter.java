@@ -4,23 +4,15 @@ import domain.Convertible;
 import domain.ConvertibleFactory;
 import domain.Speed;
 import services.interfaces.Service;
-import support.DataManager;
 import support.exception.MyExeption;
 import support.identifiers.SpeedUnit;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static support.constants.Constants.SPACE;
+
 public class Converter implements Service {
-
-    private DataManager dataManager;
-
-    public Converter() {
-    }
-
-    public Converter(List<String> list) {
-        dataManager = new DataManager(list);
-    }
 
     public static double toMS(Convertible convertible) {
         if (convertible instanceof Speed) {
@@ -36,7 +28,58 @@ public class Converter implements Service {
                     return speed.getDoubleValue();
             }
         }
-        throw new MyExeption("Incorrect input: units are not agreed.");
+        throw new MyExeption("Incorrect input: can't converts toMS.");
+    }
+
+    public static double toKMH(Convertible convertible) {
+        if (convertible instanceof Speed) {
+            Speed speed = (Speed) convertible;
+            switch (speed.getUnit()) {
+                case "mph":
+                    return speed.getDoubleValue() * 1.609;
+                case "kn":
+                    return speed.getDoubleValue() * 1.852;
+                case "ms":
+                    return speed.getDoubleValue() * 3600 / 1000;
+                default:
+                    return speed.getDoubleValue();
+            }
+        }
+        throw new MyExeption("Incorrect input: can't converts toKMH.");
+    }
+
+    public static double toMPH(Convertible convertible) {
+        if (convertible instanceof Speed) {
+            Speed speed = (Speed) convertible;
+            switch (speed.getUnit()) {
+                case "kmh":
+                    return speed.getDoubleValue() / 1.609;
+                case "kn":
+                    return speed.getDoubleValue() / 0.869;
+                case "ms":
+                    return speed.getDoubleValue() * 1609 / 3600;
+                default:
+                    return speed.getDoubleValue();
+            }
+        }
+        throw new MyExeption("Incorrect input: can't converts toMPH.");
+    }
+
+    public static double toKN(Convertible convertible) {
+        if (convertible instanceof Speed) {
+            Speed speed = (Speed) convertible;
+            switch (speed.getUnit()) {
+                case "kmh":
+                    return speed.getDoubleValue() / 1.852;
+                case "mph":
+                    return speed.getDoubleValue() * 0.869;
+                case "ms":
+                    return speed.getDoubleValue() * 3600 / 1852;
+                default:
+                    return speed.getDoubleValue();
+            }
+        }
+        throw new MyExeption("Incorrect input: can't converts toKN.");
     }
 
     public static List<Double> speedsToMS(List<Speed> speeds) {
@@ -45,13 +88,12 @@ public class Converter implements Service {
                 .collect(Collectors.toList());
     }
 
-
     @Override
     public String apply(String convertibles, SpeedUnit speedUnit) {
         Convertible convertible;
         try {
             convertible = ConvertibleFactory.create(convertibles);
-            return toMS(convertible) + speedUnit.getSymbol();
+            return speedUnit.getFunction().apply(convertible) + SPACE + speedUnit.getSymbol();
         } catch (Exception e) {
             return convertibles + " - " + e.getMessage();
         }

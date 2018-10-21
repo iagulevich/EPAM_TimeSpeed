@@ -28,12 +28,13 @@ public class ServiceController extends HttpServlet {
         session.setAttribute("result", res + " - doGet");*/
         // req.setAttribute("result", req.getParameter("field"));
         String strValue = req.getParameter("field");
-        String strUnit = req.getParameter("select");
-
+        String strUnit = req.getParameter("selectFrom");
         //Speed speed = new Speed(strValue, strUnit);
+        String selectTo = req.getParameter("selectTo");
+        SpeedUnit speedUnit = SpeedUnit.getUnit(selectTo);
 
         req.setAttribute("field", strValue);
-        req.setAttribute("resultValue", new Converter().apply(strValue + SPACE + strUnit, SpeedUnit.MS));
+        req.setAttribute("resultValue", new Converter().apply(strValue + SPACE + strUnit, speedUnit));
 
 
 
