@@ -17,14 +17,14 @@ public class Converter implements Service {
         dataManager = new DataManager(list);
     }
 
-    private static double toMS(Speed speed) {
+    public static double toMS(Speed speed) {
         switch (speed.getUnit()) {
             case "kmh":
-                return speed.getDoubleValue() * 3600 / 1000;
+                return speed.getDoubleValue() * 1000 / 3600;
             case "mph":
-                return speed.getDoubleValue() * 3600 / 1609;
+                return speed.getDoubleValue() * 1609 / 3600;
             case "kn":
-                return speed.getDoubleValue() * 3600 / 1852;
+                return speed.getDoubleValue() * 1852 / 3600;
             default:
                 return speed.getDoubleValue();
         }

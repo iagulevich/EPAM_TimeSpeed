@@ -1,12 +1,14 @@
 package support.identifiers;
 
+import support.constants.Constants;
+
 import java.util.Arrays;
 
 public enum SpeedUnit {
-    KMH("kmh"),
-    MPH("mph"),
-    KN("kn"),
-    MS("ms");
+    KMH(Constants.KMH),
+    MPH(Constants.MPH),
+    KN(Constants.KN),
+    MS(Constants.MS);
 
     private final String symbol;
 
