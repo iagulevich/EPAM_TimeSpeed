@@ -3,7 +3,6 @@ package support.identifiers;
 import domain.Convertible;
 import services.Converter;
 import support.constants.Constants;
-
 import java.util.Arrays;
 import java.util.function.Function;
 

@@ -4,6 +4,7 @@ import domain.Convertible;
 import domain.ConvertibleFactory;
 import domain.Speed;
 import services.interfaces.Service;
+import support.Formatter;
 import support.exception.MyExeption;
 import support.identifiers.SpeedUnit;
 
@@ -93,7 +94,7 @@ public class Converter implements Service {
         Convertible convertible;
         try {
             convertible = ConvertibleFactory.create(convertibles);
-            return speedUnit.getFunction().apply(convertible) + SPACE + speedUnit.getSymbol();
+            return Formatter.format(speedUnit.getFunction().apply(convertible)) + SPACE + speedUnit.getSymbol();
         } catch (Exception e) {
             return convertibles + " - " + e.getMessage();
         }
