@@ -13,11 +13,11 @@
 </head>
 <body>
 
-<%@include file="header.jsp" %>
+<%@include file="jsp/header.jsp" %>
 <hr>
 <form action="service" name="form">
 
-    <!-- <pre> <c:import url="input_values.txt"></c:import> </pre> -->
+    <%--<c:import url="input_values.txt"></c:import>--%>
 
     <input type="text" value="${field}" name="field">
 

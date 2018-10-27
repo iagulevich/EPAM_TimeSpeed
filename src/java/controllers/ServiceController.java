@@ -14,7 +14,7 @@ import java.io.IOException;
 import static support.constants.Constants.SPACE;
 
 @WebServlet("/service")
-public class ServiceController extends HttpServlet {
+public class ServiceController extends AbstractController {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doPost(req, resp);
@@ -32,6 +32,7 @@ public class ServiceController extends HttpServlet {
         req.setAttribute("field", strValue);
         req.setAttribute("resultValue", new Converter().apply(strValue + SPACE + strUnit, speedUnit));
 
-        getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
+        forward("/index.jsp", req, resp);
+
     }
 }
