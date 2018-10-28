@@ -1,4 +1,7 @@
 package controllers;
 
-public class RegistrationController {
+public class RegistrationController extends AbstractController{
+
+
+
 }
