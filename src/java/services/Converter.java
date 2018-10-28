@@ -5,7 +5,7 @@ import domain.ConvertibleFactory;
 import domain.Speed;
 import services.interfaces.Service;
 import support.Formatter;
-import support.exception.MyExeption;
+import support.exception.MyException;
 import support.identifiers.SpeedUnit;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class Converter implements Service {
                     return speed.getDoubleValue();
             }
         }
-        throw new MyExeption("Incorrect input: can't converts toMS.");
+        throw new MyException("Incorrect input: can't converts toMS.");
     }
 
     public static double toKMH(Convertible convertible) {
@@ -46,7 +46,7 @@ public class Converter implements Service {
                     return speed.getDoubleValue();
             }
         }
-        throw new MyExeption("Incorrect input: can't converts toKMH.");
+        throw new MyException("Incorrect input: can't converts toKMH.");
     }
 
     public static double toMPH(Convertible convertible) {
@@ -63,7 +63,7 @@ public class Converter implements Service {
                     return speed.getDoubleValue();
             }
         }
-        throw new MyExeption("Incorrect input: can't converts toMPH.");
+        throw new MyException("Incorrect input: can't converts toMPH.");
     }
 
     public static double toKN(Convertible convertible) {
@@ -80,7 +80,7 @@ public class Converter implements Service {
                     return speed.getDoubleValue();
             }
         }
-        throw new MyExeption("Incorrect input: can't converts toKN.");
+        throw new MyException("Incorrect input: can't converts toKN.");
     }
 
     public static List<Double> speedsToMS(List<Speed> speeds) {

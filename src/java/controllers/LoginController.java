@@ -2,6 +2,7 @@ package controllers;
 
 import dao.UserStorage;
 import domain.dao_models.User;
+import domain.dao_models.UserFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,11 +17,16 @@ public class LoginController extends AbstractController{
 
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        User user = new User(login, password);
 
-        if (UserStorage.getInstance().isFound(user)){
-           req.setAttribute("user", user);
-           forward("/index.jsp", req, resp);
-        };
+        try {
+            User user = UserFactory.create(login, password);
+            if (UserStorage.getInstance().isFound(user)){
+                req.setAttribute("user", user);
+                forward("/index.jsp", req, resp);
+            }
+        } catch (Exception e){
+            forwardError("/jsp/login.jsp", e.getMessage(), req, resp);
+        }
+
     }
 }

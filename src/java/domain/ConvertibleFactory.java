@@ -1,6 +1,6 @@
 package domain;
 
-import support.exception.MyExeption;
+import support.exception.MyException;
 
 import static support.identifiers.DistanceUnit.isDistance;
 import static support.identifiers.SpeedUnit.isSpeedUnit;
@@ -20,7 +20,7 @@ public class ConvertibleFactory {
             return new Distance(separated[0], separated[1]);
         }
 
-        throw new MyExeption(" Unknown unit ");
+        throw new MyException(" Unknown unit ");
 
        /* return (isSpeedUnit(separated[1]) ? new Speed(separated[0], separated[1]) :
                 isTimeUnit(separated[1]) ? new Time(separated[0], separated[1]) :

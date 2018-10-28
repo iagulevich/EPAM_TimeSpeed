@@ -11,6 +11,9 @@
     <title>Login</title>
 </head>
 <body>
+<c:if test="${error != null}">
+    <p style="color: red">${error}</p>
+</c:if>
 <form action="login" name="login_form" method="get" style="text-align: center">
     <input type="text" name="login" value="" placeholder="login">
     <input type="password" name="password" value="" placeholder="password">

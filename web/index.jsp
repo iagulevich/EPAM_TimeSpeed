@@ -15,6 +15,9 @@
 
 <%@include file="jsp/header.jsp" %>
 <hr>
+<c:if test="${error != null}">
+    <p style="color: red">${error}</p>
+</c:if>
 <form action="service" name="form">
 
     <%--<c:import url="input_values.txt"></c:import>--%>
@@ -50,7 +53,6 @@
 <form name="otput">
     <input type="hidden" name="resultValue" value="" style="width: 500px">
 </form>
-
 
 <!-- br>
 <form action="exception" name="exceptionText">
