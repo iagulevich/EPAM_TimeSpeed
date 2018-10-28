@@ -1,4 +1,3 @@
-<%@ page import="support.constants.Constants" %>
 <%@ page import="static support.constants.Constants.KMH" %>
 <%@ page import="static support.constants.Constants.MPH" %>
 <%@ page import="static support.constants.Constants.KN" %>

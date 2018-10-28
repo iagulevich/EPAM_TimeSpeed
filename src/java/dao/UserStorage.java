@@ -3,7 +3,6 @@ package dao;
 import domain.dao_models.User;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class UserStorage {
@@ -18,11 +17,20 @@ public class UserStorage {
     }
 
     public static synchronized UserStorage getInstance(){
-        if (instance == null) instance = new UserStorage(Collections.singletonList(new User("USER","123")));
+
+        if (instance == null) {
+            List<User> users = new ArrayList<>();
+            users.add(new User("USER","123"));
+            instance = new UserStorage(users);
+        }
         return instance;
     }
 
     public boolean isFound(User user){
         return users.contains(user);
+    }
+
+    public void addUser(User user){
+        users.add(user);
     }
 }

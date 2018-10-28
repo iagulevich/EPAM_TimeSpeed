@@ -11,10 +11,15 @@
     <title>Registration</title>
 </head>
 <body>
+<c:if test="${error != null}">
+    <p style="color: red">${error}</p>
+</c:if>
+<form action="registration" name="registr" method="get" style="text-align: center" >
 
-<form action="registration" name="registr" method="get" >
-
-
+    <input type="text" name="name" value="" placeholder="name">
+    <input type="text" name="login" value="" placeholder="login">
+    <input type="text" name="password" value="" placeholder="password">
+    <input type="submit" value="registration">
 
 </form>
 

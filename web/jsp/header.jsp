@@ -19,9 +19,9 @@
             </c:choose>
         </th>
 
-        <td><a style="padding-left: 100px" href="jsp/login.jsp"
+        <td><a href="/jsp/login.jsp"
                <c:if test="${user.login != null}">hidden</c:if>>Login</a></td>
-        <td><a href="jsp/registration.jsp"
+        <td><a href="/jsp/registration.jsp"
                <c:if test="${user.login != null}">hidden</c:if>>Registration</a></td>
         <td><a href="logout"
                <c:if test="${user.login == null}">hidden</c:if>>logout</a></td>

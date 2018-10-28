@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/jsp/login")
+@WebServlet("/jsp/log")
 public class LoginController extends AbstractController{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,6 +24,7 @@ public class LoginController extends AbstractController{
                 req.setAttribute("user", user);
                 forward("/index.jsp", req, resp);
             }
+            forwardError("/jsp/login.jsp", "User not found", req, resp);
         } catch (Exception e){
             forwardError("/jsp/login.jsp", e.getMessage(), req, resp);
         }
