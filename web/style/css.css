@@ -1,0 +1,22 @@
+body{
+    background-color: rgba(30,255,211,0.2);
+}
+.header-panel{
+    display: block;
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    border: solid black;
+    background: coral;
+}
+.general{
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border: solid navy;
+    border-radius: 10px;
+    background: slategrey;
+    box-shadow: lightgreen 0px 10px 10px 0px;
+}
