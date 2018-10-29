@@ -1,6 +1,7 @@
 *.iml
 *.xml
+*.MF
 
 /out
 /.idea
-
+/META-INF
