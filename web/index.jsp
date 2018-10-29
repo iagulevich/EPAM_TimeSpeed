@@ -7,7 +7,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" type="text/css" href="../style/css.css" >
 
-
 <html>
 <head>
     <title>Converter</title>
@@ -15,7 +14,6 @@
 <body>
 
 <%@include file="jsp/header.jsp" %>
-
 
 <div class="general">
     <c:if test="${error != null}">

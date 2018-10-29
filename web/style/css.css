@@ -4,19 +4,17 @@ body{
 .header-panel{
     display: block;
     text-align: right;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 20px 10px 0px;
+    margin-bottom: 10px;
     border-radius: 10px;
-    border: solid black;
     background: coral;
+    box-shadow: rgba(154, 32, 238, 0.4) 10px 10px 10px 0px;
 }
 .general{
     display: block;
     text-align: center;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    border: solid navy;
+    padding: 30px 0px 20px 0px;
     border-radius: 10px;
     background: slategrey;
-    box-shadow: lightgreen 0px 10px 10px 0px;
+    box-shadow: lightgreen 10px 10px 10px 0px;
 }
