@@ -16,9 +16,9 @@
 <%@include file="jsp/header.jsp" %>
 
 <div class="general">
-    <c:if test="${error != null}">
+    <%--<c:if test="${error != null}">
         <p style="color: red">${error}</p>
-    </c:if>
+    </c:if>--%>
 
     <form action="service" name="form">
 

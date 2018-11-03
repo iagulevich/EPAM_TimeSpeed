@@ -12,9 +12,15 @@
     <title>Login</title>
 </head>
 <body>
-<c:if test="${error != null}">
+
+<!-- вывод ошибки при пом. скриплета -->
+<% if (request.getParameter("error") != null) %>
     <p style="color: red">${error}</p>
-</c:if>
+
+<!-- вывод ошибки при  пом. jstl -->
+<%--<c:if test="${error != null}">
+    <p style="color: red">${error}</p>
+</c:if>--%>
 <form action="log" name="login_form" method="get" style="text-align: center">
     <input type="text" name="login" value="" placeholder="login">
     <input type="password" name="password" value="" placeholder="password">
