@@ -30,3 +30,4 @@
             *  DataManager создает сущности Time & Speed.
             *
             */
+можно почитать https://tproger.ru/translations/building-a-web-app-with-java-servlets/
