@@ -3,7 +3,7 @@ package domain;
 public class Time extends Convertible {
 
     public Time(String value, String unit) {
-        super(value,unit);
+        super(value, unit);
     }
 
     public Integer getIntValue() {

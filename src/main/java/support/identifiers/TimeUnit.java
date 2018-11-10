@@ -1,4 +1,5 @@
 package support.identifiers;
+
 import java.util.Arrays;
 
 public enum TimeUnit {

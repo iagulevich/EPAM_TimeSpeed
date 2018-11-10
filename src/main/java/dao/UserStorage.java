@@ -16,21 +16,21 @@ public class UserStorage {
         this.users = users;
     }
 
-    public static synchronized UserStorage getInstance(){
+    public static synchronized UserStorage getInstance() {
 
         if (instance == null) {
             List<User> users = new ArrayList<>();
-            users.add(new User("USER","123"));
+            users.add(new User("USER", "123"));
             instance = new UserStorage(users);
         }
         return instance;
     }
 
-    public boolean isFound(User user){
+    public boolean isFound(User user) {
         return users.contains(user);
     }
 
-    public void addUser(User user){
+    public void addUser(User user) {
         users.add(user);
     }
 }

@@ -1,9 +1,5 @@
 package support.identifiers;
 
-import domain.Convertible;
-
-import java.util.function.Function;
-
 public enum DistanceUnit {
     KM("km"),
     ML("ml"),

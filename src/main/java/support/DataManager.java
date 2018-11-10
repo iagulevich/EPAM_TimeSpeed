@@ -7,7 +7,6 @@ import domain.Time;
 import support.comparators.SpeedGroupByUnit;
 import support.comparators.SpeedSortByValue;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,17 +19,17 @@ public class DataManager {
         this.list = list;
     }
 
-    private void dataListCreator(){
+    private void dataListCreator() {
         dataList = list.stream().map(ConvertibleFactory::create).collect(Collectors.toList());
     }
 
-    public Time getTime(){
+    public Time getTime() {
         if (dataList == null) dataListCreator();
         return (Time) dataList.get(0);
     }
 
-    public List<Speed> getSpeeds(){
-        if(dataList == null) dataListCreator();
+    public List<Speed> getSpeeds() {
+        if (dataList == null) dataListCreator();
         return dataList.subList(1, dataList.size()).stream()
                 .map(convertible -> (Speed) convertible)
                 .collect(Collectors.toList());

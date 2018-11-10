@@ -1,6 +1,7 @@
 package support.interfaces;
 
 import domain.Convertible;
+
 import java.util.List;
 
 @FunctionalInterface
