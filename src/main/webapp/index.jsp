@@ -20,7 +20,7 @@
         <p style="color: red">${error}</p>
     </c:if>--%>
 
-    <form action="service" name="form">
+    <form action="${pageContext.request.contextPath}/service" name="form">
 
         <%--<c:import url="input_values.txt"></c:import>--%>
 

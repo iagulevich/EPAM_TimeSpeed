@@ -19,11 +19,11 @@
                 </c:otherwise>
             </c:choose>
 
-            <td><a href="/jsp/login.jsp"
+            <td><a href="${pageContext.request.contextPath}/jsp/login.jsp"
                    <c:if test="${not empty user.login}">hidden</c:if>>Login</a></td>
-            <td><a href="/jsp/registration.jsp"
+            <td><a href="${pageContext.request.contextPath}/jsp/registration.jsp"
                    <c:if test="${not empty user.login}">hidden</c:if>>Registration</a></td>
-            <td><a href="logout"
+            <td><a href="${pageContext.request.contextPath}/logout"
                    <c:if test="${empty user.login}">hidden</c:if>>logout</a></td>
     </div>
 </div>
