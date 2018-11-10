@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EPAM_TimeSpeed.iml" filepath="$PROJECT_DIR$/EPAM_TimeSpeed.iml" />
+      <module fileurl="file://$PROJECT_DIR$/time-speed.iml" filepath="$PROJECT_DIR$/time-speed.iml" />
     </modules>
   </component>
 </project>
